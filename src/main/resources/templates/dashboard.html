@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h2>Welcome, <span th:text="${username}"></span>!</h2>
+<a href="/transaction/add">Add Transaction</a> | <a href="/logout">Logout</a>
+
+<h3>Your Transactions</h3>
+<table border="1">
+    <tr>
+        <th>Amount</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Type</th>
+        <th>Date</th>
+    </tr>
+    <tr th:each="transaction : ${transactions}">
+        <td th:text="${transaction.amount}"></td>
+        <td th:text="${transaction.description}"></td>
+        <td th:text="${transaction.category}"></td>
+        <td th:text="${transaction.type}"></td>
+        <td th:text="${transaction.date}"></td>
+    </tr>
+</table>
+</body>
+</html>
